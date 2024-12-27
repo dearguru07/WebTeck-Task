@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .tabs button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .tabs button:hover {
+            background-color: #45a049;
+        }
+        .tabs button.active {
+            background-color: #2e7d32;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        form input, form textarea, form select, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Event Management Dashboard</h1>
+    </header>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="event">Event Management</button>
+            <button class="tab-btn" data-tab="attendee">Attendee Management</button>
+            <button class="tab-btn" data-tab="task">Task Tracker</button>
+        </div>
+
+        <!-- Event Management Page -->
+        <div id="event" class="content active">
+            <h2>Event Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Event Rows Here -->
+                </tbody>
+            </table>
+            <h3>Add/Edit Event</h3>
+            <form id="event-form">
+                <input type="text" id="event-name" placeholder="Event Name" required>
+                <textarea id="event-description" placeholder="Event Description" required></textarea>
+                <input type="text" id="event-location" placeholder="Location" required>
+                <input type="date" id="event-date" required>
+                <button type="submit">Save Event</button>
+            </form>
+        </div>
+
+        <!-- Attendee Management Page -->
+        <div id="attendee" class="content">
+            <h2>Attendee Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Assigned Event</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Attendee Rows Here -->
+                </tbody>
+            </table>
+            <h3>Add Attendee</h3>
+            <form id="attendee-form">
+                <input type="text" id="attendee-name" placeholder="Attendee Name" required>
+                <select id="attendee-event" required>
+                    <option value="">Select Event</option>
+                    <!-- Dynamic Event Options Here -->
+                </select>
+                <button type="submit">Add Attendee</button>
+            </form>
+        </div>
+
+        <!-- Task Tracker Page -->
+        <div id="task" class="content">
+            <h2>Task Tracker</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Event</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Task Rows Here -->
+                </tbody>
+            </table>
+            <h3>Update Task Status</h3>
+            <form id="task-form">
+                <select id="task-event" required>
+                    <option value="">Select Event</option>
+                    <!-- Dynamic Event Options Here -->
+                </select>
+                <input type="text" id="task-name" placeholder="Task Name" required>
+                <select id="task-status" required>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <button type="submit">Update Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(btn => btn.classList.remove('active'));
+                contents.forEach(content => content.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Add form validation here for each form
+    </script>
+</body>
+</html>
