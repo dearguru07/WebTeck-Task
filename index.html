@@ -6,14 +6,11 @@
     <title>Event Management Dashboard</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Event Management Dashboard</h1>
-    </header>
+      <h1 class="header">Event Management Dashboard</h1>
     <div class="container">
       <div class="tabs">
         <button class="tab-btn active" data-tab="event">
@@ -22,8 +19,6 @@
         <button class="tab-btn" data-tab="attendee">Attendee Management</button>
         <button class="tab-btn" data-tab="task">Task Tracker</button>
       </div>
-
-      <!-- Event Management Page -->
       <div id="event" class="content active">
         <h2>Event Management</h2>
         <table>
@@ -37,7 +32,6 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Dynamic Event Rows Here -->
           </tbody>
         </table>
         <h3>Add/Edit Event</h3>
@@ -64,7 +58,6 @@
         </form>
       </div>
 
-      <!-- Attendee Management Page -->
       <div id="attendee" class="content">
         <h2>Attendee Management</h2>
         <table>
@@ -76,7 +69,6 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Dynamic Attendee Rows Here -->
           </tbody>
         </table>
         <h3>Add Attendee</h3>
@@ -89,13 +81,11 @@
           />
           <select id="attendee-event" required>
             <option value="">Select Event</option>
-            <!-- Dynamic Event Options Here -->
           </select>
           <button type="submit">Add Attendee</button>
         </form>
       </div>
 
-      <!-- Task Tracker Page -->
       <div id="task" class="content">
         <h2>Task Tracker</h2>
         <table>
@@ -108,14 +98,12 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Dynamic Task Rows Here -->
           </tbody>
         </table>
         <h3>Update Task Status</h3>
         <form id="task-form">
           <select id="task-event" required>
             <option value="">Select Event</option>
-            <!-- Dynamic Event Options Here -->
           </select>
           <input type="text" id="task-name" placeholder="Task Name" required />
           <select id="task-status" required>

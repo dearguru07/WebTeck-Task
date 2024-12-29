@@ -10,5 +10,3 @@ tabs.forEach(tab => {
         document.getElementById(tab.dataset.tab).classList.add('active');
     });
 });
-
-// Add form validation here for each form
